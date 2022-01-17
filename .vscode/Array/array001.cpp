@@ -5,6 +5,7 @@ void nhap(int a[],int &n);
 void lietkeCacPhanTuLe(int a[],int n);
 int tinhTongCoBaoNhieuSoChan(int a[],int n);
 int tinhTongCoBaoNhieuSoLe(int a[],int n);
+bool tontaiChanTrongMang(int a[],int n);
 int main()
 {
     int a[MAX]; //khai bao mang (toi da)
@@ -29,6 +30,13 @@ int main()
     cout<<"Co tat ca "<<tinhTongCoBaoNhieuSoChan(a,n)<<" so chan";
     cout<<endl;
     cout<<"Co "<<tinhTongCoBaoNhieuSoLe(a,n)<<" so le";
+    cout<<endl;
+    cout<<tontaiChanTrongMang(a,n);
+    cout<<endl;
+    if(tontaiChanTrongMang(a,n))
+    {
+        cout<<"True";
+    }else cout<<"False";
     cout<<endl;
     return 0;
 }
@@ -75,4 +83,17 @@ int tinhTongCoBaoNhieuSoLe(int a[],int n)
         }
     }
     return tongLe;
+}
+bool tontaiChanTrongMang(int a[],int n)
+{
+    bool test = false;
+    for (int i = 0;i < n;i++)
+    {
+        if (a[i]%2==0)
+        {
+            test = true;
+            break;
+        }
+    }
+    return test;
 }
