@@ -14,6 +14,7 @@ class Student
     public:
         void input();
         void output();
+        float findGPA();
 };
 void Student::input()
 {
@@ -31,17 +32,22 @@ void Student::input()
 void Student::output()
 {
     cout<<"Id: "<<id<<endl;
-    cout<<"Name: "<<id<<endl;
-    cout<<"Math: "<<id<<endl;
-    cout<<"Physical: "<<id<<endl;
-    cout<<"Chemistry: "<<id<<endl;
+    cout<<"Name: "<<name<<endl;
+    cout<<"Math: "<<math<<endl;
+    cout<<"Physical: "<<physical<<endl;
+    cout<<"Chemistry: "<<chemistry<<endl;
 
+}
+float Student::findGPA()
+{
+    return (math + physical + chemistry) / 3;
 }
 int main()
 {
     Student dat;
     dat.input();
     dat.output();
+    cout<<"GPA: "<<dat.findGPA();
     return 0;
 
 }
