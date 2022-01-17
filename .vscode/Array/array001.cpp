@@ -31,8 +31,6 @@ int main()
     cout<<endl;
     cout<<"Co "<<tinhTongCoBaoNhieuSoLe(a,n)<<" so le";
     cout<<endl;
-    cout<<tontaiChanTrongMang(a,n);
-    cout<<endl;
     if(tontaiChanTrongMang(a,n))
     {
         cout<<"True";
