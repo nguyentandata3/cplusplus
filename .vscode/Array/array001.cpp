@@ -4,6 +4,7 @@ using namespace std;
 void nhap(int a[],int &n);
 void lietkeCacPhanTuLe(int a[],int n);
 int tinhTongCoBaoNhieuSoChan(int a[],int n);
+int tinhTongCoBaoNhieuSoLe(int a[],int n);
 int main()
 {
     int a[MAX]; //khai bao mang (toi da)
@@ -26,6 +27,8 @@ int main()
     lietkeCacPhanTuLe(a,n);
     cout<<endl;
     cout<<"Co tat ca "<<tinhTongCoBaoNhieuSoChan(a,n)<<" so chan";
+    cout<<endl;
+    cout<<"Co "<<tinhTongCoBaoNhieuSoLe(a,n)<<" so le";
     cout<<endl;
     return 0;
 }
@@ -60,4 +63,16 @@ int tinhTongCoBaoNhieuSoChan(int a[],int n)
         }
     }
     return tong;
+}
+int tinhTongCoBaoNhieuSoLe(int a[],int n)
+{
+    int tongLe = 0;
+    for (int i = 0;i < n;i++)
+    {
+        if (a[i]%2!=0)
+        {
+            tongLe++;
+        }
+    }
+    return tongLe;
 }
