@@ -36,7 +36,6 @@ void Student::output()
     cout<<"Math: "<<math<<endl;
     cout<<"Physical: "<<physical<<endl;
     cout<<"Chemistry: "<<chemistry<<endl;
-
 }
 float Student::findGPA()
 {
@@ -49,5 +48,4 @@ int main()
     dat.output();
     cout<<"GPA: "<<dat.findGPA();
     return 0;
-
 }
