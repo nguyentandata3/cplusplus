@@ -20,6 +20,8 @@ int main()
     {
         cout<<"Co ton tai so chinh phuong";
     }else cout<<"Khong ton tai so chinh phuong";
+    cout<<endl;
+    
     return 0;
 }
 void nhapMang(int a[],int &n)//xay dung ham nhap
