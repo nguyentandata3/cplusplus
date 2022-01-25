@@ -1,36 +1,41 @@
 #include <iostream>
 using namespace std;
-void nhapPhanSo(int &tuso, int &mauso);
-void xuatPhanSo(int tuso,int mauso);
+
+typedef struct PhanSo
+{
+    int tuso;
+    int mauso;
+};
+void nhapPhanSo(PhanSo &phanso);
+void xuatPhanSo(PhanSo phanso);
 int main()
 {
     //khai bao
-    int tuso,mauso;
+    PhanSo phanso;
     //xu ly
-    nhapPhanSo(tuso,mauso);
-    xuatPhanSo(tuso,mauso);
-    //tra ve
+    nhapPhanSo(phanso);
+    xuatPhanSo(phanso);
     return 0;
 }
-void nhapPhanSo(int &tuso, int &mauso)
+void nhapPhanSo(PhanSo &phanso)
 {
-    cout<<"Tu so = ";
-    cin>>tuso;
-    cout<<"Mau so = ";
-    cin>>mauso;
+    cout<<"tu so = ";
+    cin>>phanso.tuso;
+    cout<<"mau so = ";
+    cin>>phanso.mauso;
 }
-void xuatPhanSo(int tuso,int mauso)
+void xuatPhanSo(PhanSo phanso)
 {
-    if (mauso==0)
+    if (phanso.mauso==0)
     {
         cout<<"Khong ton tai phan so nay"<<endl;
     }
-    else if (mauso>0)
+    else if (phanso.mauso>0)
     {
-        cout<<tuso<<"/"<<mauso;
+        cout<<phanso.tuso<<"/"<<phanso.mauso<<endl;
     }
     else 
     {
-        cout<<tuso<<" / ("<<mauso<<")";
+        cout<<phanso.tuso<<" / ("<<phanso.mauso<<")"<<endl;
     }
 }

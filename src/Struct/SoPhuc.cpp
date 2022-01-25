@@ -1,35 +1,42 @@
 #include <iostream>
 using namespace std;
 
-void nhapSoPhuc(float &phanthuc,float &phanao);
-void xuatSoPhuc(float phanthuc, float phanao);
+typedef struct SoPhuc
+{
+    float phanthuc;
+    float phanao;
+};
+void nhapSoPhuc(SoPhuc &sophuc);
+void xuatSoPhuc(SoPhuc sophuc);
 int main()
 {
     //khai bao
-    float phanthuc,phanao;
-
+    SoPhuc sophuc;
     //xu ly
-    nhapSoPhuc(phanthuc,phanao);
-    xuatSoPhuc(phanthuc,phanao);
+    nhapSoPhuc(sophuc);
+    xuatSoPhuc(sophuc);
     //tra ve
     return 0;
 }
-void nhapSoPhuc(float &phanthuc,float &phanao)
+void nhapSoPhuc(SoPhuc &sophuc)
 {
-    cout<<"phan thuc: ";
-    cin>>phanthuc;
-    cout<<"phan ao: ";
-    cin>>phanao;
+    cout<<"phan thuc = ";
+    cin>>sophuc.phanthuc;
+    cout<<"phan ao = ";
+    cin>>sophuc.phanao;
 }
-void xuatSoPhuc(float phanthuc, float phanao)
+void xuatSoPhuc(SoPhuc sophuc)
 {
-    if (phanao > 0)
+    if (sophuc.phanao==0)
     {
-        cout<<phanthuc<<" + "<<phanao<<"i";
+        cout<<sophuc.phanthuc<<endl;
     }
-    else if (phanao < 0)
+    else if (sophuc.phanao>0)
     {
-        cout<<phanthuc<<" "<<phanao<<"i";
+        cout<<sophuc.phanthuc<<" + "<<sophuc.phanao<<"i"<<endl;
     }
-    else cout<<phanthuc;
+    else 
+    {
+        cout<<sophuc.phanthuc<<" "<<sophuc.phanao<<"i"<<endl;
+    }
 }
