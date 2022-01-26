@@ -7,6 +7,7 @@ typedef struct Date //khai bao kieu du lieu tu tao Date
     int month;
     int year;
 };
+void menu(Date date);
 void nhapDate(Date &date); //khai bao ham nhap
 void xuatDate(Date date,string format); //khai bao ham xuat
 Date timNgayTiepTheo(Date current);// khai bao ham tim ngay tiep theo
@@ -15,11 +16,9 @@ int main()
 {
     //khai bao
     Date first,second;
-    string format = "-";
     //xu ly
     nhapDate(first); //goi ham nhap ngay
-    xuatDate(first,format); //goi ham xuat ngay
-    xuatDate(timNgayTiepTheo(first),format);// xuat ngay tiep theo của first
+    menu(first);
     //tra ve
     return 0;
 }
@@ -112,4 +111,45 @@ Date timNgayTiepTheo(Date current){
         break;
     }
     return next;
+}
+void menu(Date date){
+    int luachon;
+    do{
+        // hien thi menu
+        cout<<"-------------Menu-------------"<<endl;
+        cout<<"1. nhap lai"<<endl;
+        cout<<"2. xuat thoi gian"<<endl;
+        cout<<"3. xuat ngay tiep theo"<<endl;
+        // nhap lua chon
+        cout<<"lua chon cua ban: ";
+        cin>>luachon;
+        // xet lua chon
+        switch (luachon)
+        {
+            case 1:
+            {
+                nhapDate(date);
+                break;
+            }
+            case 2:
+            {
+                string format = "-";
+                xuatDate(date,format);
+                break;
+            }
+            case 3:
+            {
+                string format = "-";
+                xuatDate(timNgayTiepTheo(date),format);
+                break;
+            }
+            default:
+            {
+                cout<<"Nhap sai.";
+                break;
+            }
+        }
+        cout<<"Nhan phim 1 de thoat!";
+        cin>>luachon;
+    }while(luachon!=1);
 }
