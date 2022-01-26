@@ -8,13 +8,19 @@ typedef struct SoPhuc
 };
 void nhapSoPhuc(SoPhuc &sophuc);
 void xuatSoPhuc(SoPhuc sophuc);
+SoPhuc tongSoPhuc(SoPhuc sophuc1, SoPhuc sophuc2);// khai bao ham tim tong
 int main()
 {
     //khai bao
-    SoPhuc sophuc;
+    SoPhuc sophuc1,sophuc2, tong;
     //xu ly
-    nhapSoPhuc(sophuc);
-    xuatSoPhuc(sophuc);
+    nhapSoPhuc(sophuc1);
+    nhapSoPhuc(sophuc2);
+    xuatSoPhuc(sophuc1);
+    xuatSoPhuc(sophuc2);
+    tong = tongSoPhuc(sophuc1,sophuc2);
+    cout<<"Tong 2 so phuc: ";
+    xuatSoPhuc(tong);
     //tra ve
     return 0;
 }
@@ -39,4 +45,11 @@ void xuatSoPhuc(SoPhuc sophuc)
     {
         cout<<sophuc.phanthuc<<" "<<sophuc.phanao<<"i"<<endl;
     }
+}
+SoPhuc tongSoPhuc(SoPhuc sophuc1, SoPhuc sophuc2)// xay dung ham tinh tong
+{
+    SoPhuc tong;
+    tong.phanthuc = sophuc1.phanthuc + sophuc2.phanthuc;
+    tong.phanao = sophuc1.phanao + sophuc2.phanao;
+    return tong;
 }
