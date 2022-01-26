@@ -9,7 +9,7 @@ typedef struct Date //khai bao kieu du lieu tu tao Date
 };
 void nhapDate(Date &date); //khai bao ham nhap
 void xuatDate(Date date,string format); //khai bao ham xuat
-Date ngaytieptheo(Date current); // khai bao ham ngay tiep theo
+Date timNgayTiepTheo(Date current);// khai bao ham tim ngay tiep theo
 // voi setDate(int day,int month,)
 int main()
 {
@@ -19,6 +19,7 @@ int main()
     //xu ly
     nhapDate(first); //goi ham nhap ngay
     xuatDate(first,format); //goi ham xuat ngay
+    xuatDate(timNgayTiepTheo(first),format);// xuat ngay tiep theo của first
     //tra ve
     return 0;
 }
@@ -35,66 +36,80 @@ void xuatDate(Date date, string format) //xay dung ham xuat
 {
     cout<<endl<<date.day<<format<<date.month<<format<<date.year<<endl;
 }
-Date ngaytieptheo(Date current)
-{
-    Date ketqua;
+Date timNgayTiepTheo(Date current){
+    Date next;
+   // xu li
     switch (current.month)
     {
-        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
-        {
-            if (current.day==31)
-            {
-                if (current.month == 12)
-                {
-                    ketqua.day = 1;
-                    ketqua.month = 1;
-                    ketqua.year = current.year + 1;
-                }
-                else
-                {
-                    ketqua.day = 1;
-                    ketqua.month = current.month + 1;
-                    ketqua.year = current.year;
-                }          
-            }
-            else
-            {
-                ketqua.day = current.day + 1;
-                ketqua.month = current.month;
-                ketqua.year = current.year;
-            }
-            break;
+    case 4: case 6: case 9: case 11:
+        // xu li
+        if(current.day<30){
+            next.day = current.day + 1;
+            next.month = current.month;
+            next.year = current.year;
         }
-        case 2:
-        {
-            if(current.day==28||current.day==29)
-            {
-
-            }
+        else{
+            next.day = 1;
+            next.month = current.month + 1;
+            next.year = current.year;
         }
         break;
-        case 4: case 6: case 9: case 11:
+    case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        // xu li
+        if(current.day<31){
+            next.day = current.day + 1;
+            next.month = current.month;
+            next.year = current.year;
+        }
+        else if (current.month==12)
         {
-            if (current.day==30)
-            {
-                ketqua.day = 1;
-                ketqua.month = current.month + 1;
-                ketqua.year = current.year;
-            }
-            else
-            {
-                ketqua.day = current.day + 1;
-                ketqua.month = current.month;
-                ketqua.year = current.year;
-            }
+            next.day = 1;
+            next.month = 1;
+            next.year = current.year + 1;
+        }
+        else
+        {
+            next.day = 1;
+            next.month = current.month + 1;
+            next.year = current.year;
         }
         break;
-        default:
+    case 2:
+        // xu li
+        if (current.year%4==0)
         {
-            cout<<"Thang khong hop le."
-            break;
+            if (current.day < 29)
+            {
+                next.day = current.day + 1;
+                next.month = current.month;
+                next.year = current.year;
+            }
+            else 
+            {
+                next.day = 1;
+                next.month = current.month + 1;
+                next.year = current.year;
+            }
         }
+        else
+        {
+            if (current.day < 28)
+            {
+                next.day = current.day + 1;
+                next.month = current.month;
+                next.year = current.year;
+            }
+            else 
+            {
+                next.day = 1;
+                next.month = current.month + 1;
+                next.year = current.year;
+            }
+        }
+        break;    
+    default: 
+        cout<<"Thoi gian khong hop le.";
+        break;
     }
-
-    return ketqua;
+    return next;
 }
