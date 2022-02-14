@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// ngay1 va ngay2
 typedef struct Date //khai bao kieu du lieu tu tao Date
 {
     int day;
@@ -11,6 +11,9 @@ void menu(Date date);
 void nhapDate(Date &date); //khai bao ham nhap
 void xuatDate(Date date,string format); //khai bao ham xuat
 Date timNgayTiepTheo(Date current);// khai bao ham tim ngay tiep theo
+bool testNgayTrungNhau(Date ngay1, Date ngay2);
+int soSanh(Date date1, Date date2);
+void hoanVi(Date &date1, Date &date2);
 // voi setDate(int day,int month,)
 int main()
 {
@@ -117,9 +120,11 @@ void menu(Date date){
     do{
         // hien thi menu
         cout<<"-------------Menu-------------"<<endl;
-        cout<<"1. nhap lai"<<endl;
-        cout<<"2. xuat thoi gian"<<endl;
-        cout<<"3. xuat ngay tiep theo"<<endl;
+        cout<<"1. nhap lai."<<endl;
+        cout<<"2. xuat thoi gian."<<endl;
+        cout<<"3. xuat ngay tiep theo."<<endl;
+        cout<<"4. Kiem tra ngay trung nhau."<<endl;
+        cout<<"5. hoan vi 2 ngay."<<endl;
         // nhap lua chon
         cout<<"lua chon cua ban: ";
         cin>>luachon;
@@ -143,6 +148,20 @@ void menu(Date date){
                 xuatDate(timNgayTiepTheo(date),format);
                 break;
             }
+            case 4:
+            {
+    
+                if (testNgayTrungNhau(date,date)==0) cout<<"2 ngay nay khong trung nhau."<<endl;
+                else cout<<"2 ngay nay trung nhau."<<endl;
+            }
+            case 5:
+            {
+                Date date2;
+                string format = "-";
+                nhapDate(date2);
+                hoanVi(date,date2);
+                xuatDate(date,format);
+            }
             default:
             {
                 cout<<"Nhap sai.";
@@ -152,4 +171,31 @@ void menu(Date date){
         cout<<"Nhan phim 1 de thoat!";
         cin>>luachon;
     }while(luachon!=1);
+}
+bool testNgayTrungNhau(Date ngay1, Date ngay2)
+{
+    return    ngay1.day == ngay2.day && ngay1.month == ngay2.month && ngay1.year == ngay2.year;
+}
+int soSanh(Date date1, Date date2)
+{
+    int ketqua = 0;
+    if (date1.year > date2.year) ketqua = 1;
+    else if (date1.year < date2.year) ketqua = -1;
+    else
+    {
+        if(date1.month > date2.month) ketqua = 1;
+        else if(date1.month < date2.month) ketqua = -1;
+        else
+        {
+            if(date1.day > date2.day) ketqua = 1;
+            else if (date1.day < date2.day) ketqua = -1;
+        }
+    }
+    return ketqua;
+}
+void hoanVi(Date &date1, Date &date2)
+{
+    Date temp = date1;
+    date1 = date2;
+    date2 = temp;
 }
