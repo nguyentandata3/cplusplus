@@ -8,6 +8,8 @@ void xuatMang(int a[],int n); //khai bao ham xuat
 bool laSoChinhPhuong(int a);//khai bao ham kiem tra
 void lietkeSoChinhPhuong(int a[], int n); //khai bao ham liet ke so chinh phuong
 bool tontaiSoChinhPhuong(int a[],int n); //khai bao ham kiem tra ton tai so chinh phuong
+void hoanvi2so(int a, int b);
+void sapXepMang(int a[], int n);
 int main()
 {
     //khai bao
@@ -19,9 +21,9 @@ int main()
     if(tontaiSoChinhPhuong(mang,n)==1)
     {
         cout<<"Co ton tai so chinh phuong";
-    }else cout<<"Khong ton tai so chinh phuong";
+    }
+    else cout<<"Khong ton tai so chinh phuong";
     cout<<endl;
-    
     return 0;
 }
 void nhapMang(int a[],int &n)//xay dung ham nhap
@@ -78,4 +80,25 @@ bool tontaiSoChinhPhuong(int a[],int n) //xay dung ham kiem tra ton tai so chinh
         }
     }
     return test;
+}
+void hoanvi2so(int a, int b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+void sapXepMang(int a[], int n){
+    // 3 2 1 3 2
+    // i = 0, j=1: 2 3 1 3 2
+    // i = 0, j = 2: (1) 3 2 3 2
+    //...
+    // i = 1, (1) (2) ...
+    for(int i=0;i<n-1;i++){
+        for(int j=i+1; j<n;j++){
+            if(a[i]>a[j]){
+                hoanvi2so(a[i],a[j]);
+            }
+        }
+    }
 }
