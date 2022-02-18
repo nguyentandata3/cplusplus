@@ -22,5 +22,5 @@ double fibo(int n)
         return 1;
     }
     //TH binh thuong
-    else return fibo(n-2) + fibo(n-1);
+    return fibo(n-2) + fibo(n-1);
 }
