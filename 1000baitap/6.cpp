@@ -13,6 +13,6 @@ int main()
 }
 double tinhTong(int n)
 {
-    if (n==1) return 1;
+    if (n<=1) return 0.5;
     return tinhTong(n-1) + 1.0/(1.0*n*(n-1));
 }
