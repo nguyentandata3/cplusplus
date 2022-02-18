@@ -6,6 +6,7 @@ void nhap(int a[MAX_ROW][MAX_COLUM], int &colum, int &row);
 void xuat(int a[MAX_ROW][MAX_COLUM], int colum, int row);
 int timMax(int a[MAX_ROW][MAX_COLUM], int colum, int row);
 int timMin(int a[MAX_ROW][MAX_COLUM], int colum, int row);
+void xoaPhanTuAm(int a[MAX_ROW][MAX_COLUM], int colum, int row);
 int main()
 {
     int a[MAX_ROW][MAX_COLUM];
@@ -27,7 +28,8 @@ void nhap(int a[MAX_ROW][MAX_COLUM], int &colum, int &row)
         for (int j = 0; j < colum; j++)
         {
             cout<<"a["<<i<<"]["<<j<<"]: ";
-            cin>>a[i][j];
+            // cin>>a[i][j];
+            a[i][j] = i + j;
         }
     }
 }
@@ -66,4 +68,8 @@ int timMin(int a[MAX_ROW][MAX_COLUM], int colum, int row)
         }
     }
     return min;
+}
+void xoaPhanTuAm(int a[MAX_ROW][MAX_COLUM], int colum, int row)
+{
+    
 }
