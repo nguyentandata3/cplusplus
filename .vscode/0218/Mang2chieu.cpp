@@ -11,6 +11,8 @@ int maxCot(int a[MAX_ROW][MAX_COLUM],int colum, int row, int cotcantim); // tim 
 int maxDuongCheo(int a[MAX_ROW][MAX_COLUM], int colum, int row); //tim max duong cheo 
 int maxDuongCheoNguoc(int a[MAX_ROW][MAX_COLUM], int colum, int row);
 int maxTongHang(int a[MAX_ROW][MAX_COLUM], int colum, int row);
+int minTongCot(int a[MAX_ROW][MAX_COLUM], int colum, int row);
+int tongHangNhoNhat(int a[MAX_ROW][MAX_COLUM], int colum, int row);
 int main()
 {
     int a[MAX_ROW][MAX_COLUM];
@@ -28,6 +30,8 @@ int main()
     cout<<"max duong cheo = "<<maxDuongCheo(a,colum,row)<<endl;
     cout<<"max duong cheo phu = "<<maxDuongCheoNguoc(a,colum,row)<<endl;
     cout<<"max Tong hang = "<<maxTongHang(a,colum,row)<<endl;
+    cout<<"min Tong cot = "<<minTongCot(a,colum,row)<<endl;
+    cout<<"min Tong hang = "<<tongHangNhoNhat(a,colum,row)<<endl;
     return 0;
 }
 void nhap(int a[MAX_ROW][MAX_COLUM], int &colum, int &row)
@@ -40,7 +44,7 @@ void nhap(int a[MAX_ROW][MAX_COLUM], int &colum, int &row)
     {
         for (int j = 0; j < colum; j++)
         {
-            a[i][j] = i + j;
+            a[i][j] = -i - j;
             // cin>>a[i][j];
            
         }
@@ -121,7 +125,7 @@ int maxDuongCheoNguoc(int a[MAX_ROW][MAX_COLUM], int colum, int row)
     {
         for(int j = 0; j < colum; j++)
         {
-            if(i+j==(colum-1) && max < a[i][j]) max = a[i][j];
+            if((i+j==row-1) && max < a[i][j]) max = a[i][j];
         }
     }
     return max;
@@ -138,10 +142,39 @@ int maxTongHang(int a[MAX_ROW][MAX_COLUM], int colum, int row)
             tong[i] += a[i][j];
         }
     }
+    max = tong[0];
     for (int i = 0; i < row; i++)
     {
             if (max < tong[i]) max = tong[i];
     }
     return max;
 }
-
+int minTongCot(int a[MAX_ROW][MAX_COLUM], int colum, int row)
+{
+    int tong[MAX_COLUM];
+    int min = tong[0];
+    for(int j = 0; j < colum; j++)
+    {
+        tong[j] = 0;
+        for(int i = 0; i < row; i++)
+        {
+            tong[j] += a[i][j];
+        }
+        if (min > tong[j]) min = tong[j];
+    }
+    return min;
+}
+int tongHangNhoNhat(int a[MAX_ROW][MAX_COLUM], int colum, int row)
+{
+    int min;
+    for(int i = 0; i < row; i++)
+    {
+        int tong = 0;
+        for(int j = 0; j < colum; j++)
+        {
+            tong += a[i][j];
+        }
+        if (min > tong) min = tong;
+    }
+    return min;
+}
