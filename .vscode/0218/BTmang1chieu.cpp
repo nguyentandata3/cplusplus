@@ -46,7 +46,7 @@ void xoaPhanTuAM(int a[MAX], int &n)
             m++;
         }
     }
-    n-=m;
+    // n-=m;
     // n-=m;
     // cout<<endl;
     // for (int i = 0; i < n; i++)
