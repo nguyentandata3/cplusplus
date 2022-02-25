@@ -13,12 +13,14 @@ int maxDuongCheoNguoc(int a[MAX_ROW][MAX_COLUM], int colum, int row);
 int maxTongHang(int a[MAX_ROW][MAX_COLUM], int colum, int row);
 int minTongCot(int a[MAX_ROW][MAX_COLUM], int colum, int row);
 int tongHangNhoNhat(int a[MAX_ROW][MAX_COLUM], int colum, int row);
+int* timGTNNCot(int a[MAX_ROW][MAX_COLUM],int colum, int row);
 int main()
 {
     int a[MAX_ROW][MAX_COLUM];
     int colum,row;
     int findrow = 3;
     int findcolum = 3;
+    int *minCot;
     nhap(a,colum,row);
     cout<<endl;
     xuat(a,colum,row);
@@ -32,6 +34,10 @@ int main()
     cout<<"max Tong hang = "<<maxTongHang(a,colum,row)<<endl;
     cout<<"min Tong cot = "<<minTongCot(a,colum,row)<<endl;
     cout<<"min Tong hang = "<<tongHangNhoNhat(a,colum,row)<<endl;
+    for(int i=0;i<colum;i++)
+    {
+        cout<<"cot "<<i<<": "<<mincot[i]<<endl;
+    }
     return 0;
 }
 void nhap(int a[MAX_ROW][MAX_COLUM], int &colum, int &row)
@@ -118,7 +124,6 @@ int maxDuongCheo(int a[MAX_ROW][MAX_COLUM], int colum, int row) //tim max duong 
     return max;
 }
 int maxDuongCheoNguoc(int a[MAX_ROW][MAX_COLUM], int colum, int row)
-
 {
     int max = a[0][row - 1];
     for(int i = 0; i < row; i++)
@@ -178,3 +183,37 @@ int tongHangNhoNhat(int a[MAX_ROW][MAX_COLUM], int colum, int row)
     }
     return min;
 }
+int maxHangVaCot(int a[MAX_ROW][MAX_COLUM], int colum, int row)
+{
+    int max = a[0][0];
+    for(int i = 0; i < row; i++)
+    {
+        int tong = 0;
+        for(int j = 0; j < colum; j++)
+        {
+            if (max)
+        }
+    }
+    return max;
+}
+int* timGTNNCot(int a[MAX_ROW][MAX_COL],int m, int n)
+{
+    int *b;
+    b = new int(n);
+    for(int i=0;i<n;i++)
+    {
+        b[i] = a[0][i];
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(b[i]>a[j][i])
+            {
+                b[i] = a[j][i];
+            }
+        }
+    }
+    return b;
+}
+
