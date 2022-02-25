@@ -21,6 +21,7 @@ int main()
     int findrow = 3;
     int findcolum = 3;
     int *minCot;
+    minCot = new int(row);
     nhap(a,colum,row);
     cout<<endl;
     xuat(a,colum,row);
