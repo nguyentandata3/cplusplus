@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include<vector>
 using namespace std;
 class Student
 {
@@ -65,21 +66,12 @@ void Student::xuat()
 }
 int main()
 {
-    Student sv1;
-    Student sv2("Hoang Hieu","ABC123",8.5);
-    Student sv3;
-    sv1.xuat();
-    sv2.xuat();
-    cout<<"Nhap sv thu 3."<<endl;
-    sv3.nhap();
-    sv3.xuat();
-    sv1.setname("Hoang");
-    sv1.setid("qwe123");
-    sv1.setgpa(8.5);
-    
-    cout<<sv1.getname()<<endl;
-    cout<<sv1.getid()<<endl;
-    cout<<sv1.getgpa()<<endl;
-    sv1.xuat();
+    vector<Student> students;
+    students.push_back(Student("Minh","001",3));
+    students.push_back(Student("Anh","002",6));
+    students.push_back(Student("Hoang","003",4));
+    for(int i=0; i<students.size();i++){
+        students[i].xuat();
+    }
     return 0;
 }
