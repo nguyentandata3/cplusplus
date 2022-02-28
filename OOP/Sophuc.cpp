@@ -9,11 +9,21 @@ class Sophuc
     public:
         Sophuc(); //mac dinh
         Sophuc(int phannguyen, int phanphuc); //co tham so
-        void setPhanThuc(int phanthuc){
+        void setPhanThuc(int phanthuc)
+        {
             this->phanthuc = phanthuc;
         };
-        int getPhanThuc(){
+        int getPhanThuc()
+        {
             return phanthuc;
+        };
+        void setPhanao(int phanao)
+        {
+            this->phanao = phanao;
+        };
+        int getPhanao()
+        {
+            return phanao;
         };
         void nhap();
         void xuat();
@@ -37,7 +47,7 @@ void Sophuc::nhap()
 }
 void Sophuc::xuat()
 {
-    cout<<phanthuc<<" + "<<phanao<<"i";
+    cout<<phanthuc<<" + "<<phanao<<"i"<<endl;
 }
 int main()
 {
@@ -52,7 +62,10 @@ int main()
     c.nhap();
     c.xuat();
     c.setPhanThuc(12);
-    cout<<c.getPhanThuc();
+    cout<<c.getPhanThuc()<<endl;
+    c.xuat();
+    c.setPhanao(2);
+    cout<<c.getPhanao()<<endl;
     c.xuat();
     return 0;
 }
