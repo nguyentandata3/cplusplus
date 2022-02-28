@@ -10,9 +10,33 @@ class Student
         float gpa;
     public:
         Student(); // ham mac dinh
-        void nhap();
         Student(string name, string id, float gpa); // co tham so
         void xuat();
+        void nhap();
+        void setname(string name)
+        {
+            this->name = name;
+        };
+        string getname()
+        {
+            return name;
+        };
+        void setid(string id)
+        {
+            this->id = id;
+        };
+        string getid()
+        {
+            return id;
+        };
+        void setgpa(float gpa)
+        {
+            this->gpa = gpa;
+        };
+        float getgpa()
+        {
+            return gpa;
+        };
 };
 Student::Student()
 {
@@ -49,5 +73,13 @@ int main()
     cout<<"Nhap sv thu 3."<<endl;
     sv3.nhap();
     sv3.xuat();
+    sv1.setname("Hoang");
+    sv1.setid("qwe123");
+    sv1.setgpa(8.5);
+    
+    cout<<sv1.getname()<<endl;
+    cout<<sv1.getid()<<endl;
+    cout<<sv1.getgpa()<<endl;
+    sv1.xuat();
     return 0;
 }
