@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 class Sophuc
 {
@@ -51,21 +52,30 @@ void Sophuc::xuat()
 }
 int main()
 {
-    Sophuc a; // so phuc mac dinh
-    Sophuc b(1,2); //so phuc co tham so
-    Sophuc c;
-    cout<<"a = ";
-    a.xuat();
-    cout<<endl<<"b = ";
-    b.xuat();
-    cout<<endl<<"Nhap so phuc c"<<endl;
-    c.nhap();
-    c.xuat();
-    c.setPhanThuc(12);
-    cout<<c.getPhanThuc()<<endl;
-    c.xuat();
-    c.setPhanao(2);
-    cout<<c.getPhanao()<<endl;
-    c.xuat();
+    vector<Sophuc> sps;
+    sps.push_back(Sophuc(3,5));
+    sps.push_back(Sophuc(2,2));
+    sps.push_back(Sophuc(9,8));
+    sps.push_back(Sophuc(12,5));
+    for(int i = 0; i < sps.size();i++)
+    {
+        sps[i].xuat();
+    }
+    // Sophuc a; // so phuc mac dinh
+    // Sophuc b(1,2); //so phuc co tham so
+    // Sophuc c;
+    // cout<<"a = ";
+    // a.xuat();
+    // cout<<endl<<"b = ";
+    // b.xuat();
+    // cout<<endl<<"Nhap so phuc c"<<endl;
+    // c.nhap();
+    // c.xuat();
+    // c.setPhanThuc(12);
+    // cout<<c.getPhanThuc()<<endl;
+    // c.xuat();
+    // c.setPhanao(2);
+    // cout<<c.getPhanao()<<endl;
+    // c.xuat();
     return 0;
 }
