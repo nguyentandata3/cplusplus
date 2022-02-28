@@ -37,7 +37,7 @@ Student::Student(string name, string id, float gpa)
 }
 void Student::xuat()
 {
-    cout<<"Name: "<<name<<" - Id: "<<id<<" - GPA: "<<gpa<<endl;
+    cout<<"Name: "<<name<<" -- Id: "<<id<<" -- GPA: "<<gpa<<endl;
 }
 int main()
 {

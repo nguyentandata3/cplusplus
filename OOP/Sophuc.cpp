@@ -8,8 +8,14 @@ class Sophuc
     //phuong thuc
     public:
         Sophuc(); //mac dinh
-        void nhap();
         Sophuc(int phannguyen, int phanphuc); //co tham so
+        void setPhanThuc(int phanthuc){
+            this->phanthuc = phanthuc;
+        };
+        int getPhanThuc(){
+            return phanthuc;
+        };
+        void nhap();
         void xuat();
 };
 Sophuc::Sophuc()
@@ -44,6 +50,9 @@ int main()
     b.xuat();
     cout<<endl<<"Nhap so phuc c"<<endl;
     c.nhap();
+    c.xuat();
+    c.setPhanThuc(12);
+    cout<<c.getPhanThuc();
     c.xuat();
     return 0;
 }
