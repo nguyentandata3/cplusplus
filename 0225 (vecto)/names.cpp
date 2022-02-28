@@ -14,7 +14,7 @@ int main()
     {
         for(string name:names)
         {
-            cout<<name<<" ";
+            cout<<name<<" \n";
         }
     } else cout<<"vector rong.";
     return 0;
