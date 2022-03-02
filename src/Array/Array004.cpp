@@ -5,17 +5,23 @@
 using namespace std;
 #define MAX 50
 void themPhanTu(int a[],int &n, int vitri, int giatri);
+void xoaPhanTu(int a[],int &n, int vitri);
 void xuatMang(int a[], int n);
+
 int main()
 {
     int a[MAX] = {1,3,5,7,9,11,13,15,17,19,21};
     int n = 11, vitri, giatri;
 
-    cout<<"Vi tri muon them: ";
+    // cout<<"Vi tri muon them: ";
+    // cin>>vitri;
+    // cout<<"Gia tri muon them: ";
+    // cin>>giatri;
+    // themPhanTu(a,n,vitri,giatri);
+    // xuatMang(a,n);
+    cout<<"Vi tri muon xoa: ";
     cin>>vitri;
-    cout<<"Gia tri muon them: ";
-    cin>>giatri;
-    themPhanTu(a,n,vitri,giatri);
+    xoaPhanTu(a,n,vitri);
     xuatMang(a,n);
     return 0;
 }
@@ -44,5 +50,20 @@ void xuatMang(int a[], int n)
     for (int i = 0; i < n; i++)
     {
         cout<<a[i]<<" ";
+    }
+}
+// 1 2 3 4
+void xoaPhanTu(int a[],int &n, int vitri)
+{
+    //xoa o cuoi
+    if (vitri>=n) n--;
+    //xoa o dau hoac giua
+    else
+    {
+        for(int i = vitri; i < n; i++)
+        {
+            a[i] = a[i+1];
+        }
+        n--;
     }
 }
