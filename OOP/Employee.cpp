@@ -15,25 +15,51 @@ class employee
         void nhap();
         void xuat();
 };
+class employees
+{
+    private:
+        vector<employee> nhanvien; 
+    public:
+        void nhapnv(int soluong)
+        {
+            for(int i = 0; i < soluong; i++)
+            {
+                employee nhanvien;
+                nhanvien.nhap();
+                this->nhanvien.push_back(nhanvien);
+            }
+        };
+        void xuatnv(int soluong)
+        {
+            for(int i = 0; i < soluong; i++)
+            {
+               cout<<"thong tin nv thu ["<<i+1<<"]: "<<endl;
+               this->nhanvien[i].xuat();
+            }
+        };
+};
 int main()
 {
-    vector<employee> nv;
+    employees nv;
     int n;
     employee employee;
     cout<<"ban muon nhap bao nhieu nv: ";
     cin>>n;
-    for(int i = 0; i < n;i++)
-    {
-        cout<<"nv thu ["<<i<<"]: "<<endl;
-        employee.nhap();
-        nv.push_back(employee);
+    nv.nhapnv(n);
+    nv.xuatnv(n);
+    // for(int i = 0; i < n;i++)
+    // {
+    //     cout<<"nv thu ["<<i<<"]: "<<endl;
+    //     employee.nhap();
+    //     nv.push_back(employee);
+    //     cout<<endl;
        
-    }
-    for(int i = 0; i < n; i++)
-    {
-        cout<<"thong tin nv thu ["<<i+1<<"]: "<<endl;
-        nv[i].xuat();
-    }
+    // }
+    // for(int i = 0; i < n; i++)
+    // {
+    //     cout<<"thong tin nv thu ["<<i+1<<"]: "<<endl;
+    //     nv[i].xuat();
+    // }
     return 0;
 }
 employee::employee()
