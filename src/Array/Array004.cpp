@@ -6,6 +6,7 @@ using namespace std;
 #define MAX 50
 void themPhanTu(int a[],int &n, int vitri, int giatri);
 void xoaPhanTu(int a[],int &n, int vitri);
+void thayThe(int a[],int n, int vitri, int giatri);
 void xuatMang(int a[], int n);
 
 int main()
@@ -22,6 +23,12 @@ int main()
     cout<<"Vi tri muon xoa: ";
     cin>>vitri;
     xoaPhanTu(a,n,vitri);
+    xuatMang(a,n);
+    cout<<"Vi tri muon thay the: ";
+    cin>>vitri;
+    cout<<"Gia tri muon thay the: ";
+    cin>>giatri;
+    thayThe(a,n,vitri,giatri);
     xuatMang(a,n);
     return 0;
 }
@@ -51,6 +58,7 @@ void xuatMang(int a[], int n)
     {
         cout<<a[i]<<" ";
     }
+    cout<<endl;
 }
 // 1 2 3 4
 void xoaPhanTu(int a[],int &n, int vitri)
@@ -67,3 +75,13 @@ void xoaPhanTu(int a[],int &n, int vitri)
         n--;
     }
 }
+// 3 4 5 6
+// 3 8 --> 3 4 5 8
+// 7 3 --> 3 4 5 8
+void thayThe(int a[],int n, int vitri, int giatri)
+{
+    if (vitri <n){
+        a[vitri] = giatri;
+    }
+}
+
