@@ -115,7 +115,7 @@ int main()
     students.push_back(Student("Hoang","003",4));
     sinhvien.addstudents(students[1]);
     sinhvien.print();
-    string id = "002";
+    string id = "001";
     if(sinhvien.exist(id))
         sinhvien.timKiemTheoId(id).xuat();
     else cout<<"khong ton tai";
