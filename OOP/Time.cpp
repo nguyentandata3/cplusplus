@@ -13,6 +13,7 @@ class Time
         int giay;
     public:
         Time();
+        Time(int giay);// 61 --> 0:1:1
         Time(int gio, int phut, int giay);
         void nhap();
         void xuat();
@@ -26,8 +27,10 @@ class Time
 int main()
 {
     Time t1,t2;
+    Time t3(3601);
     t2.nhap();
     t2.xuat();
+    t3.xuat();
     cout<<t2.getgio();
     return 0;
 }
@@ -36,6 +39,12 @@ Time::Time()
     this->gio = 0;
     this->phut = 0;
     this->giay = 0;
+}
+Time::Time(int giay) // 61 --> 0:1:1
+{
+    this->gio = giay/3600;
+    this->phut = (giay - this->gio*3600)/60;
+    this->giay = giay - this->gio * 3600 - this->phut * 60;
 }
 Time::Time(int gio, int phut, int giay)
 {
