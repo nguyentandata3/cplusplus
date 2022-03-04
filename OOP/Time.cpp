@@ -96,7 +96,7 @@ void Time::themGiay(int giay)
 {
     // this->giay += giay;
     // Time(this->giay);
-    giay = giay + (this->gio*3600 + this->phut*60 + this->giay);
+    giay = giay + (this->gio*3600 + this->phut*60 + this->giay);// tong giay
     this->gio = giay/3600;
     this->phut = (giay - this->gio*3600)/60;
     this->giay = giay % 60;

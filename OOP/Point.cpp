@@ -45,6 +45,7 @@ class LineList{
         void print();
 };
 int main(){
+    Point point;
     LineList lines;
     Point A(3,4), B(2,3),C(4,2);
     Line AB(A,B),AC(A,C),BC(B,C);
