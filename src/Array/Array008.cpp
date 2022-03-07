@@ -9,7 +9,7 @@ int main(){
     int k;
     int a[100];
     int n;
-    cin>>k;// k=3
+    cin>>k;// k=3 bo test
     while(k--){
         nhap(a,n);
         xuat(a,n);
