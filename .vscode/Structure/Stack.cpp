@@ -14,6 +14,9 @@ class Stack
         void push(int element);
         void pop();
         void print();
+        int top();
+        bool empty();
+        bool full();
 };
 int main()
 {
@@ -23,7 +26,10 @@ int main()
     stack.push(3);
     stack.push(9);
     stack.push(10);
+    stack.pop();
     stack.print();
+    cout<<stack.top()<<endl;
+    
     return 0;
 }
 Stack::Stack()
@@ -52,4 +58,18 @@ void Stack::print()
     {
         cout<<elements[i]<<" ";
     }
+}
+int Stack::top()
+{
+    return elements[size-1];
+}
+bool Stack::empty()
+{
+    if(size < MAX_SIZE) return 1;
+    return 0;
+}
+bool Stack::full()
+{
+    if(size = MAX_SIZE) return 1;
+    return 0;
 }

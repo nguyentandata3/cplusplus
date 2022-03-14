@@ -64,6 +64,7 @@
         "xhash": "cpp",
         "atomic": "cpp",
         "compare": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "*.tcc": "cpp"
     }
 }
