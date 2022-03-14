@@ -16,5 +16,6 @@ int main()
         else name[i+1] = tolower(name[i+1]);
     }
     cout<<name;
+    
     return 0;
 }
