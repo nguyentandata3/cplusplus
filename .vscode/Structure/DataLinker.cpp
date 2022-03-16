@@ -17,6 +17,8 @@ class List
         List(){head = NULL;}
         void addNode(Node *node);
         void print();
+        void exist(int value);
+        void update(int source, int des);
 };
 void List::addNode(Node *node)
 {
@@ -45,6 +47,18 @@ void List::print()
         current = current->next;
     }
 }
+void List::update(int source, int des)
+{
+    Node *current = head;
+    while(current)
+    {
+        if(current->getdata()==source)
+        {
+            current->setdata(des);
+        }
+        current = current->next;
+    }
+}
 
 int main()
 {
@@ -60,6 +74,8 @@ int main()
     list->addNode(node1);
     list->addNode(node2);
     list->addNode(node3);
+    list->print();
+    list->update(6, 15);
     list->print();
     return 0;
 }
