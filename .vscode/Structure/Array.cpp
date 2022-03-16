@@ -10,8 +10,8 @@ class Array
     private:
         int size;
         int elements[10];
-        const int MAX_SIZE = 10;
     public:
+        const int MAX_SIZE = 10;
         Array();
         Array append(Array other);
         void push(int value);
@@ -38,7 +38,7 @@ Array Array::append(Array other)
     }
     for(int i = 0; i < other.getsize(); i++)
     {
-        result.push(getelements(i));
+        result.push(other.getelements(i));
     }
     return result;
 }
@@ -118,6 +118,5 @@ int main()
     cout<<"exist: "<<list.exist(11)<<endl;
     cout<<"getelements: "<<list.getelements(6)<<endl;
     list.append(list2).print();
-    list.print();
     return 0;
 }
