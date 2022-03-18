@@ -17,8 +17,9 @@ class List
         List(){head = NULL;}
         void addNode(Node *node);
         void print();
-        void exist(int value);
+        void remove(int value);
         void update(int source, int des);
+
 };
 void List::addNode(Node *node)
 {
@@ -41,9 +42,27 @@ void List::addNode(Node *node)
 void List::print()
 {
     Node *current = head;
-    while(current)
+    // while(current)
+    // {
+    //     cout<<current->getdata()<<" ";
+    //     current = current->next;
+    // }
+    for(*current; current!=NULL; current = current->next)
     {
         cout<<current->getdata()<<" ";
+    }
+    cout<<endl;
+}
+void List::remove(int value)
+{
+    Node *current = head;
+    for(current; current!=NULL; current = current->next)
+    {
+        if(current->next->getdata()==value)
+        {
+            current->next = current->next->next;
+            // cout<<"["<<current->getdata()<<"] ";
+        }
         current = current->next;
     }
 }
@@ -71,11 +90,13 @@ int main()
     node1->setdata(4);
     node2->setdata(6);
     node3->setdata(12);
-    list->addNode(node1);
+    list->addNode(node1); // = (*list).addNode(node1);
     list->addNode(node2);
     list->addNode(node3);
     list->print();
     list->update(6, 15);
+    list->print();
+    list->remove(12);
     list->print();
     return 0;
 }
