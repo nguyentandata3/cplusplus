@@ -2,14 +2,22 @@
 #include <iostream>
 using namespace std;
 int fibo(int n);
+
 int main()
 {
-    int n;
+    int n,x=4;
+    bool test = false;
     cin>>n;
     for(int i = 0; i < n; i++)
     {
-        cout<<fibo(i)<<" ";
+        if(fibo(i)== x)
+        {
+            test = true;
+            break;
+        }
     }
+    if (test==true) cout<<"co ton tai."<<endl;
+    else cout<<"khong ton tai."<<endl;
     return 0;
 }
 int fibo(int n)
