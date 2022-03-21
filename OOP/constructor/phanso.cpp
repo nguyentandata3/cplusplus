@@ -71,7 +71,7 @@ int main()
     a.setmau(9);
     b.settu(4);
     b.setmau(-5);
-    // c=a+b;
+    c=a+b;
     c=a-b;
     cout<<c;
     return 0;
