@@ -21,8 +21,23 @@ class Phanso
         }
         friend ostream &operator <<(ostream &output, const Phanso &S)
         {
-            output<<"So phuc: "<<S.tu<<" + "<<S.mau<<endl;
+            if(S.mau > 0) output<<"Phan so: "<<S.tu<<" / "<<S.mau<<endl;
+            else output<<"Phan so: "<<S.tu<<" / ("<<S.mau<<")"<<endl;
             return output;
+        }
+        Phanso operator+(const Phanso &c)
+        {
+            Phanso phanso;
+            phanso.tu = c.tu + this->tu;
+            phanso.mau = c.mau + this->mau;
+            return phanso;
+        }
+        Phanso operator-(const Phanso &c)
+        {
+            Phanso phanso;
+            phanso.tu = this->tu - c.tu;
+            phanso.mau = this->mau - c.mau;
+            return phanso;
         }
 };
 Phanso::Phanso()
@@ -49,11 +64,15 @@ void Phanso::xuat()
 }
 int main()
 {
-    Phanso a;
+    Phanso a, c(0,0);
+    float e,f;
     Phanso b(4,-5);
-    cin>>a;
-    cin>>b;
-    a.xuat();
-    b.xuat();
+    a.settu(8);
+    a.setmau(9);
+    b.settu(4);
+    b.setmau(-5);
+    // c=a+b;
+    c=a-b;
+    cout<<c;
     return 0;
 }
