@@ -19,7 +19,11 @@ int main()
     b.push_back("a");
     b.push_back("xcv");
     b.push_back("qwe");
-    xuat(b);
+    for(vector<int>::reverse_iterator i = a.rbegin(); i != /*<*/ a.rend(); i++)
+    {
+        cout<<*i<<" ";
+    }
+    // xuat(b);
     // xuat(a);
     return 0;
 }

@@ -20,11 +20,9 @@ int main()
         if(tong+i->first*i->second>max){
             int soto = (max-tong)/i->first;
             tong+=soto*i->first;
-            cout<<tong<<" ";
             break;
         } else{// lấy cả
             tong +=  i->first * i->second;
-            cout<<"tong2:"<<tong<<" *";
         }
     }
     cout<<"tong = "<<tong;
