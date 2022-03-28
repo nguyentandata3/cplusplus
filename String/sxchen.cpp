@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     int a[100] ={2, 6, 7, 0, 1, 5, 8, 9, 15};
-    int n = 9, key, j;
+    int n = 9, key, j, dem = 0;
     for(int i = 1; i < n; i++)
     {
         key = a[i]; // quân bài mình đang cầm
@@ -16,6 +16,7 @@ int main()
         //tìm và dồn sang phải vị trí thích hợp
         while(j>=0 && a[j] < key)
         {
+            dem++;
             a[j+1] = a[j];
             j--;
         }
@@ -26,4 +27,6 @@ int main()
     {
         cout<<a[i]<<" ";
     }
+    cout<<endl<<dem<<endl;
+    return 0;
 }
