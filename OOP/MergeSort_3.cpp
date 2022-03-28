@@ -1,18 +1,21 @@
 #include <iostream>
 using namespace std;
+void merge(int a[], int left, int m, int right);
+void mergeSort(int a[], int left, int right);
+void xuat(int a[], int n);
 void merge(int a[], int left, int m, int right)
 {
     int i,j,k;
     int n1= m-left+1;
     int n2=right-m;
     int L[n1], R[n2];
-    for(int i = 0; i < n1; i++)
+    for(i = 0; i < n1; i++)
     {
         L[i] = a[left+i];
     }
-    for(int i = 0; i < n1; i++)
+    for(j = 0; j < n2; i++)
     {
-        R[i] = a[m+1+i];
+        R[j] = a[m+1+j];
     }
     i=0;
     j=0;
@@ -26,7 +29,7 @@ void merge(int a[], int left, int m, int right)
         }
         else
         {
-            a[k] == R[j];
+            a[k] = R[j];
             j++;
         }
         k++;
@@ -64,10 +67,10 @@ void xuat(int a[], int n)
 }
 int main()
 {
-    int arr[] = {12, 11, 13, 5, 6, 7};
+    int arr[100] = {12, 11, 13, 5, 6, 7};
     cout<<"truoc khi sort: ";
     xuat(arr,6);
-    mergeSort(arr,0,6);
+    mergeSort(arr,0,5);
     cout<<"sau khi sort: ";
     xuat(arr,6);
     return 0;
