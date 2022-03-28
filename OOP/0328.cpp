@@ -19,7 +19,7 @@ int soxanhat(int a[], int n, int x)
     {
         if(abs(a[i] - x) > value)
         {
-            // value = a[i];
+            value = a[i];
             index = i;
         }
     }
