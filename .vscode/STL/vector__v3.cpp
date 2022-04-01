@@ -67,5 +67,17 @@ int main()
     {
         cout<<*i<<" ";
     }
+    cout<<"\nusing emplace_back(): ";
+    a.emplace_back(20);
+    for(auto i = a.begin(); i != a.end(); i++)
+    {
+        cout<<*i<<" ";
+    }
+    cout<<"\nusing emplace(): ";
+    b.emplace(b.begin(),100);
+    for(auto i = b.begin(); i != b.end(); i++)
+    {
+        cout<<*i<<" ";
+    }
     return 0;
 }
