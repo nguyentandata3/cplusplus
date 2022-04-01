@@ -60,9 +60,8 @@ bool capsocong(int a[], int n)
     {
         if(a[i+1]-a[i] != socong)
         {
-            test = false;
-            cout<<"a[i]+a[1]"<<a[i]+a[1]<<" ? a[i+1]-"<<a[i]<<endl;
-            // break;
+            test = false;         
+            break;
         }
     }
     return test;
