@@ -14,21 +14,27 @@ int main()
         cout<<a<<" ";
     }    
     cout<<"\nusing push_front() & emplace_front() & pop_front(): ";
-    flist1.push_front(50);
-    flist1.emplace_front(100);
-    flist1.pop_front();
-    for(int &a : flist1)
-    {
-        cout<<a<<" ";
-    }
+    // flist1.push_front(50);
+    // flist1.emplace_front(100);
+    // flist1.pop_front();
+    // for(int &a : flist1)
+    // {
+    //     cout<<a<<" ";
+    // }
     cout<<"\nusing insert_after(): ";
-    flist2 = flist1.insert_after(flist1.begin(),{1,2,3});
+    flist2 = flist1.insert_after(flist1.begin(),{4,5,6});
     for(int &a : flist1)
     {
         cout<<a<<" ";
     }
     cout<<"\nusing emplace_after(): ";
-    flist2 = flist1.emplace_after(flist1,flist1.begin()+2);
+    flist2 = flist1.emplace_after(flist2,8);
+    for(int &a : flist1)
+    {
+        cout<<a<<" ";
+    }
+    cout<<"\nusing erase_after(): ";
+    flist2 = flist1.erase_after(flist1.begin());
     for(int &a : flist1)
     {
         cout<<a<<" ";
