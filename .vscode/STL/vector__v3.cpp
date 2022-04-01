@@ -74,7 +74,7 @@ int main()
         cout<<*i<<" ";
     }
     cout<<"\nusing emplace(): ";
-    b.emplace(b.begin(),100);
+    b.emplace(b.begin()+2,100);
     for(auto i = b.begin(); i != b.end(); i++)
     {
         cout<<*i<<" ";
