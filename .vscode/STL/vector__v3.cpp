@@ -3,11 +3,12 @@
 using namespace std;
 int main()
 {
-    vector<int> a;
+    vector<int> a,b;
     cout<<"using push_back(): ";
     for(int i = 0; i < 5; i++)
     {
         a.push_back(i);
+        b.push_back(i+10);
     }
     cout<<"\n";
     cout<<"output using begin() & end(): ";
@@ -36,7 +37,7 @@ int main()
         cout<<*i<<" ";
     }
     cout<<"\n";
-    cout<<"insert(2,15): ";
+    cout<<"insert(a.begin(),15): ";
     // cout<<"a.begin(): "<<a.begin();
     a.insert(a.begin(),15);
     for(auto i = a.begin(); i != a.end(); i++)
@@ -51,8 +52,20 @@ int main()
         cout<<*i<<" ";
     }
     cout<<"\n";
-    cout<<"using clear(): ";
-    a.clear();
-    cout<<"a.size(): "<<a.size()<<"\n";
+    // cout<<"using clear(): ";
+    // a.clear();
+    // cout<<"a.size(): "<<a.size()<<"\n";
+    cout<<"using swap(): ";
+    a.swap(b);
+    cout<<"\nvector a: ";
+    for(auto i = a.begin(); i != a.end(); i++)
+    {
+        cout<<*i<<" ";
+    }
+    cout<<"\nvector b: ";
+    for(auto i = b.begin(); i != b.end(); i++)
+    {
+        cout<<*i<<" ";
+    }
     return 0;
 }
