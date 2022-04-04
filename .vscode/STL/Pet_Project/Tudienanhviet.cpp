@@ -2,28 +2,75 @@
 #include <string>
 #include <map>
 using namespace std;
+class Tu{
+    private:
+        string loaitu;
+        string nghiatu;
+    public:
+        Tu();
+    // khoi tao 2 doi so
+        Tu(string loaitu, string nghiatu);
+    // set,get
+        void setloaitu(string loaitu);
+        string getloaitu();
+        void setnghiatu(string nghiatu);
+        string getnghiatu();
+        void xuat();
+};
+Tu::Tu()
+{
+    this->loaitu = "error";
+    this->nghiatu = "error";
+}
+Tu::Tu(string loaitu, string nghiatu)
+{
+    this->loaitu = loaitu;
+    this->nghiatu = nghiatu;
+}
+void Tu::setloaitu(string loaitu)
+{
+    this->loaitu = loaitu;
+}
+string Tu::getloaitu()
+{
+    return loaitu;
+}
+void Tu::setnghiatu(string nghiatu)
+{
+    this->nghiatu = nghiatu;
+}
+string Tu::getnghiatu()
+{
+    return nghiatu;
+}
+void Tu::xuat()
+{
+    cout<<loaitu<<": "<<nghiatu<<"\n";
+}
 class dictionary
 {
     private:
-        map<string, string> danhsachtu;
+        map<string, Tu> danhsachtu;
     public:
         dictionary();
-        void themTu(string english, string vietnam);
+        void themTu(string english, Tu nghia);
         void inTuDien();
         void xoaTu(string key);
-        void update(string key, string value);
-        void search(string key);
+        void update(string key, Tu nghia);
+        Tu search(string key);
 };
 dictionary::dictionary()
 {};
-void dictionary::themTu(string english, string vietnam){
-    danhsachtu[english] = vietnam;
+void dictionary::themTu(string english, Tu nghia){
+    danhsachtu[english] = nghia;
 }
 void dictionary::inTuDien()
 {
     for(auto i = danhsachtu.begin(); i != danhsachtu.end(); i++)
     {
-        cout<<i->first<<": "<<i->second<<"\n";
+        cout<<i->first<<": ";
+        i->second.xuat();
+        cout<<"\n";
     }
 }
 void dictionary::xoaTu(string key)
@@ -37,36 +84,40 @@ void dictionary::xoaTu(string key)
         }
     }
 }
-void dictionary::update(string key, string value)
+void dictionary::update(string key, Tu nghia)
 {
     for(auto i = danhsachtu.begin(); i != danhsachtu.end(); i++)
     {
         if(i->first == key)
         {
-            i->second = value;
+            i->second = nghia;
             break;
         }
     }
 }
-void dictionary::search(string key)
+Tu dictionary::search(string key)
 {
     for(auto i = danhsachtu.begin(); i != danhsachtu.end(); i++)
     {
         if(i->first == key)
         {
-            cout<<i->first<<": "<<i->second<<"\n";
-            break;
+            return i->second;            
         }
     }
+    return i->second;
 }
 int main()
 {
     dictionary list;
-    list.themTu("English","Viet Nam");
-    list.themTu("ENG","HN");
-    // list.xoaTu("English");
-    list.update("English","VN");
+    Tu keyword;
+    keyword.setloaitu("Hoa");
+    keyword.setnghiatu("Loai hoa");
+    keyword.xuat();
+    keyword.setloaitu("abc");
+    keyword.setnghiatu("eft qwe");
+    keyword.xuat();
+    list.themTu("English",keyword);
     list.inTuDien();
-    list.search("ENG");
+    list.search("ENG").xuat();
     return 0;
 }
