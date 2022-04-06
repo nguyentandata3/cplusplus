@@ -29,35 +29,31 @@ int main()
 {
     DoVat a[10];
     float dongia[10];
-    float kg = 49, tongvalue = 0, tongkg = 0;
+    float kg = 172, tongvalue = 0, tongkg = 0, tonggiatri = 0;
     a[0] = DoVat(3,4,"A");
     a[1] = DoVat(5,7,"B");
     a[2] = DoVat(10,12,"C");
-    a[3] = DoVat(15,25,"D");
+    a[3] = DoVat(15,28,"D");
     // tính trong lượng
     for(int i = 0; i < 4; i++)
     {
         dongia[i] = a[i].tinhDonGia();
     }   
-    sort(dongia,dongia + 4);
+    sort(dongia,dongia + 4);    
     for(int i = 3; i >= 0; i--)
     {
-        cout<<dongia[i]<<" ";
+        if(tongkg+a[i].trongluong > kg)
+        {
+            break;
+        }
+        else
+        {
+            int soluong = (kg - tongkg) / a[i].trongluong;
+            tongkg = tongkg + a[i].trongluong*soluong;
+            tongvalue = tongvalue + a[i].giatri*soluong;
+            tonggiatri += dongia[i]*soluong;
+        }    
     }
-    // for(int i = 0; i < 4; i++)
-    // {
-    //     if(tongkg+a[i].trongluong > kg)
-    //     {
-    //         break;
-    //     }
-    //     else
-    //     {
-    //         int soluong =kg / a[i].trongluong;
-    //         tongvalue+=a[i].tinhDonGia()*soluong;
-    //         tongkg=tongkg + a[i].trongluong*soluong;
-    //         cout<<soluong<<"\n";
-    //         cout<<"tong kg: "<<tongkg<<"\ntong value: "<<tongvalue;
-    //     }
-    // }
+    cout<<"\ntong kg: "<<tongkg<<"\ntong value: "<<tongvalue<<"\ntong gia tri: "<<tonggiatri;
     return 0;
 }
