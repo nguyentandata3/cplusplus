@@ -102,5 +102,9 @@ int main()
     cout<<"\n"<<s.substr(pos + 1);
     cout<<"\n"<<s.substr(pos);
     cout<<"\n"<<s.substr(pos-1);
+    string buyer = "money";
+    string seller = "goods";
+    swap(buyer,seller);
+    cout<<"\n"<<buyer<<" + "<<seller;
     return 0;
 }
