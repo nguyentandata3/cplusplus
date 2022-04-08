@@ -5,7 +5,7 @@
 // - in ra các kí tự là số
 // - kiểm tra 1 số đối xứng không?
 // - kiểm tra tồn tại số chẵn không?
-// - id: M003,M002, M004,.. -> sắp xếp lại cái id theo Ab
+// - id: M003,M002, M004,.. -> sắp xếp lại cái id theo Ab --> đúng định dạng M00 ở trong chuỗi.
 #include <iostream>
 #include <string>
 using namespace std;
@@ -14,10 +14,12 @@ int main()
     string chuoi="22223";
     string chuoi2;
     string chuoi3[4];
+    string s="abcdef:ghijk";
     chuoi3[0] = "b007";
-    chuoi3[1] = "a004";
-    chuoi3[2] = "g003";
-    chuoi3[3] = "o006";
+    chuoi3[1] = "m004";
+    chuoi3[2] = "abcdM003";
+    chuoi3[3] = "M006";
+    string pattern="M00";
     bool test = true;
     cout<<chuoi.length()<<"\n";
     cout<<"In chuoi nguoc: ";
@@ -87,5 +89,18 @@ int main()
     {
         cout<<chuoi3[i]<<" ";
     }
+    cout<<endl;
+    cout<<chuoi3[3]<<endl;
+        if(chuoi3[3].find("mn00")<chuoi3[3].size())
+        {
+            cout<<chuoi3[3];
+        }    
+    int pos = s.find(":");
+    cout<<"\n"<<pos;
+    string sub = s.substr(0,pos);
+    cout<<"\n"<<sub;
+    cout<<"\n"<<s.substr(pos + 1);
+    cout<<"\n"<<s.substr(pos);
+    cout<<"\n"<<s.substr(pos-1);
     return 0;
 }
