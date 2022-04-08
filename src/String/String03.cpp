@@ -4,12 +4,13 @@
 // - in ra chuỗi đảo ngược
 // - in ra các kí tự là số
 // - kiểm tra 1 số đối xứng không?
+// - kiểm tra tồn tại số chẵn không?
 #include <iostream>
 #include <string>
 using namespace std;
 int main()
 {
-    string chuoi="123321";
+    string chuoi="22223";
     string chuoi2;
     bool test = true;
     cout<<chuoi.length()<<"\n";
@@ -26,14 +27,42 @@ int main()
             cout<<*i<<" ";
         }
     }
-    // cout<<"\nKiem tra doi xung: ";
+    cout<<"\nKiem tra doi xung: ";
     int size = chuoi.size();
     for(int i = 0; i < size; i++){
         chuoi2+=chuoi[size-1 - i];
     }
-    cout<<chuoi2;
-    if(chuoi == chuoi2){
-        cout<<"Doi xung!";
+    if(chuoi != chuoi2){
+        test = false;
+    }
+    cout<<test;
+    test = false;
+    for(int i = 0; i < size; i++)
+    {
+        if(isdigit(chuoi[i]) != 0)
+        {
+            if ((chuoi[i] - '0')%2 == 0) // '9' - '0' = 9
+            {
+                test = true;
+                break;
+            }
+        }
     }    
+    cout<<"\nTon tai so chan: "<<test;
+    test = true;
+    for(int i = 0; i < size; i++)
+    {         
+        if((chuoi[i] - '0') %2 != 0)
+        {
+            test = false;
+            break;
+            if(isdigit(chuoi[i]) == 0)
+                {
+                test = false;
+                break;
+                }
+        }
+    }
+    cout<<"\nChuoi toan so chan: "<<test;
     return 0;
 }
