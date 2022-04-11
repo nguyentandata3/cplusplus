@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <vector>
 using namespace std;
 class theloai
 {
@@ -12,6 +13,10 @@ class theloai
         theloai(string tentheloai, string matheloai);
         void nhap();
         void xuat();
+        void settentheloai(string tentheloai){this->tentheloai = tentheloai;}
+        string  gettentheloai(){return tentheloai;}
+        void setmatheloai(string matheloai){this->matheloai = matheloai;}
+        string getmatheloai(){return matheloai;}
 };
 theloai::theloai(string tentheloai, string matheloai)
 {
@@ -25,9 +30,25 @@ void theloai::nhap()
 }
 void theloai::xuat()
 {
-    cout<<setw(15)<<"Ma the loai"<<setw(20)<<"Ten the loai";
-    cout<<setw(15)<<matheloai<<setw(20)<<tentheloai;
+    cout<<setw(15)<<"Ma the loai"<<setw(20)<<"Ten the loai"<<endl;
+    cout<<setw(15)<<matheloai<<setw(20)<<tentheloai<<endl;
 }
+// void theloai::settentheloai(string tentheloai)
+// {
+//     this->tentheloai = tentheloai;
+// }
+// string  theloai::gettentheloai()
+// {
+//     return tentheloai;
+// }
+// void theloai::setmatheloai(string matheloai)
+// {
+//     this->matheloai = matheloai;
+// }
+// string theloai::getmatheloai()
+// {
+//     return matheloai;
+// }
 class nhaxuatban
 {
     private:
@@ -51,14 +72,14 @@ void nhaxuatban::nhap()
 }
 void nhaxuatban::xuat()
 {
-    cout<<setw(15)<<"Ma xuat ban"<<setw(20)<<"Ten nha xuat ban";
-    cout<<setw(15)<<maxuatban<<setw(20)<<tennhaxuatban;
+    cout<<setw(15)<<"Ma xuat ban"<<setw(20)<<"Ten nha xuat ban"<<endl;
+    cout<<setw(15)<<maxuatban<<setw(20)<<tennhaxuatban<<endl;
 }
 
 int main()
 {
-    theloai a;
-    a.nhap();
+    theloai a,b,c;
+    a = theloai("C001","A003");
     a.xuat();
     return 0;
 }
