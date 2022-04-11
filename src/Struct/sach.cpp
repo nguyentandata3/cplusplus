@@ -115,16 +115,40 @@ void sach::xuat()
     cout<<setw(5)<<"id"<<setw(15)<<"name";
     a.xuat();
     b.xuat();
+    cout<<gia<<"\n";
 }
+class thuvien
+{
+    private:
+        vector<sach> danhsach;
+    public:
+        void themsach(sach sach)
+        {
+            danhsach.push_back(sach);
+        }
+        int soluong(){return danhsach.size();}
+        void xuat()
+        {
+            for(int i = 0; i < soluong(); i++)
+            {
+                danhsach[i].xuat();
+            }
+        }
+};
 int main()
 {
     theloai a,b,c;
     nhaxuatban m,n,o;
+    thuvien thuvien;
+    sach g;
     a = theloai("C001","A003"); //a.nhap("C001","A003");
     b = theloai("D123","E456");   
     m = nhaxuatban("001","Dinh Vu");
     sach e;
     e = sach("005","Confirm",a,m,50000);
-    e.xuat();
+    g.nhap();
+    thuvien.themsach(e);
+    thuvien.themsach(g);
+    thuvien.xuat();
     return 0;
 }
