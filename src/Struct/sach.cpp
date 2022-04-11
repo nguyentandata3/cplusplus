@@ -19,9 +19,9 @@ class theloai
         string getmatheloai(){return matheloai;}
 };
 theloai::theloai(string tentheloai, string matheloai)
-{
-    this->tentheloai = tentheloai;
+{    
     this->matheloai = matheloai;
+    this->tentheloai = tentheloai;
 }
 void theloai::nhap()
 {
@@ -75,11 +75,56 @@ void nhaxuatban::xuat()
     cout<<setw(15)<<"Ma xuat ban"<<setw(20)<<"Ten nha xuat ban"<<endl;
     cout<<setw(15)<<maxuatban<<setw(20)<<tennhaxuatban<<endl;
 }
-
+class sach
+{
+    private:
+        string id;
+        string name;
+        theloai a;
+        nhaxuatban b;
+        float gia;
+    public:
+        sach();
+        sach(string id, string name, theloai a, nhaxuatban b, float gia);
+        void nhap();
+        void xuat();
+};
+sach::sach()
+{
+    this->id = "error";
+    this->name = "error";
+}
+sach::sach(string id, string name, theloai a, nhaxuatban b, float gia)
+{
+    this->id = id;
+    this->name = name;
+    this->a = a;
+    this->b = b;
+    this->gia = gia;
+}
+void sach::nhap()
+{
+    cin>>id;
+    cin>>name;
+    a.nhap();
+    b.nhap();
+    cin>>gia;
+}
+void sach::xuat()
+{
+    cout<<setw(5)<<"id"<<setw(15)<<"name";
+    a.xuat();
+    b.xuat();
+}
 int main()
 {
     theloai a,b,c;
-    a = theloai("C001","A003");
-    a.xuat();
+    nhaxuatban m,n,o;
+    a = theloai("C001","A003"); //a.nhap("C001","A003");
+    b = theloai("D123","E456");   
+    m = nhaxuatban("001","Dinh Vu");
+    sach e;
+    e = sach("005","Confirm",a,m,50000);
+    e.xuat();
     return 0;
 }
