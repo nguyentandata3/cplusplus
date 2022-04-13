@@ -145,8 +145,10 @@ class DanhSach
         void xuat();     
         void sapxeptheoluong();
         // NhanVien getnhanvien(){return danhsach[];}
-        DanhSach timvitritheomaphongban(string maphongban);
+        DanhSach timnhanvientheomaphongban(string maphongban);
+        DanhSach timnhanvientheomavitri(string mavitri);
         float tinhtongluongtheomaphongban(string maphongban);
+        
 };
 void DanhSach::xuat()
 {
@@ -177,7 +179,7 @@ void DanhSach::sapxeptheoluong()
         }
     }
 }
-DanhSach DanhSach::timvitritheomaphongban(string maphongban)
+DanhSach DanhSach::timnhanvientheomaphongban(string maphongban)
 {
     DanhSach a;
     for(int i = 0; i < soluong(); i++)
@@ -200,6 +202,18 @@ float DanhSach::tinhtongluongtheomaphongban(string maphongban)
         }
     }
     return tong;
+}
+DanhSach DanhSach::timnhanvientheomavitri(string mavitri)
+{
+    DanhSach a;
+    for(int i = 0; i < soluong(); i++)
+    {
+        if(danhsach[i].getvitri().getmavitri() == mavitri)
+        {
+            a.themnhanvien(danhsach[i]);
+        }
+    }
+    return a;
 }
 
 int main()
@@ -226,8 +240,7 @@ int main()
     list.themnhanvien(nhanvien4);
     list.sapxeptheoluong();
     list.xuat();    
-    cout<<"List theo ma phong ban: \n";
-    a = list.timvitritheomaphongban("01");
+    a = list.timnhanvientheomaphongban("01").timnhanvientheomavitri("03");
     a.xuat();
     cout<<"Tong luong theo ma phong ban: "<<list.tinhtongluongtheomaphongban("10")<<"\n";
     return 0;
