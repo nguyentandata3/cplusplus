@@ -16,6 +16,8 @@ class PhongBan
         PhongBan(string ma, string ten);
         void nhap();
         void xuat();
+        string getmaphongban(){return ma;}
+        string gettenphongban(){return ten;}
 };
 PhongBan::PhongBan()
 {
@@ -49,6 +51,9 @@ class ViTri
         ViTri(string ma, string ten, int trocap);
         void nhap();
         void xuat();
+        string getmavitri(){return ma;}
+        string gettenvitri(){return ten;}
+        int gettrocap(){return trocap;}
 };
 ViTri::ViTri()
 {
@@ -90,6 +95,10 @@ class NhanVien
         void nhap();
         void xuat();
         float getluong(){return luong;}
+        string getmanv(){return manv;}
+        string gethotennv(){return hotennv;}
+        PhongBan getphongban(){return phongban;}
+        ViTri getvitri(){return vitri;}
 };
 NhanVien::NhanVien()
 {
@@ -130,20 +139,22 @@ class DanhSach
         {
             danhsach.push_back(nhanvien);
         }
-        void xoanv(int vitri);
+        void xoanv(int vitribatdau, int vitriketthuc);
         int soluong(){return danhsach.size();}
-        void xuat()
-        {
-            for(int i = 0; i < soluong(); i++)
-            {
-                danhsach[i].xuat();
-            }
-        }
+        void xuat();     
         void sapxeptheoluong();
 };
-void DanhSach::xoanv(int vitri)
+void DanhSach::xuat()
 {
-    danhsach.erase(danhsach.begin() + vitri);
+    cout<<setw(15)<<"Ma nhan vien"<<setw(20)<<"Ho Ten"<<setw(9)<<"Luong"<<setw(16)<<"Ma phong ban"<<setw(16)<<"Ten phong ban"<<setw(12)<<"Ma vi tri"<<setw(15)<<"Ten vi tri"<<setw(10)<<"Tro cap"<<"\n";
+    for(int i = 0; i < soluong(); i++)
+    {
+    cout<<setw(15)<<danhsach[i].getmanv()<<setw(20)<<danhsach[i].gethotennv()<<setw(9)<<danhsach[i].getluong()<<setw(16)<<danhsach[i].getphongban().getmaphongban()<<setw(16)<<danhsach[i].getphongban().gettenphongban()<<setw(12)<<danhsach[i].getvitri().getmavitri()<<setw(15)<<danhsach[i].getvitri().gettenvitri()<<setw(10)<<danhsach[i].getvitri().gettrocap()<<"\n";
+    }
+}
+void DanhSach::xoanv(int vitribatdau, int vitriketthuc)
+{
+    danhsach.erase(danhsach.begin() + vitribatdau, danhsach.begin() + vitriketthuc);
 }
 void DanhSach::sapxeptheoluong()
 {
