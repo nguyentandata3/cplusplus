@@ -5,6 +5,7 @@
 #include <string>
 #include <iomanip>
 #include <vector>
+#include <algorithm>
 using namespace std;
 class PhongBan
 {
@@ -143,6 +144,7 @@ class DanhSach
         int soluong(){return danhsach.size();}
         void xuat();     
         void sapxeptheoluong();
+        // NhanVien getnhanvien(){return danhsach[];}
 };
 void DanhSach::xuat()
 {
@@ -158,6 +160,7 @@ void DanhSach::xoanv(int vitribatdau, int vitriketthuc)
 }
 void DanhSach::sapxeptheoluong()
 {
+    // sort(danhsach.begin(),danhsach.end(),greater <float>());
     NhanVien temp;
     for(int i = 0; i < soluong()-1; i++)
     {
@@ -178,18 +181,18 @@ int main()
     ViTri vitri,vitri2,vitri3,vitri4;
     NhanVien nhanvien,nhanvien2,nhanvien3,nhanvien4;
     DanhSach list;
-    phongban = PhongBan("001","002");
-    vitri = ViTri("003","004",50000);    
+    phongban = PhongBan("01","02");
+    vitri = ViTri("03","04",50000);    
     phongban2 = PhongBan("10","11");
     vitri2 = ViTri("12","13",100000);
-    nhanvien= NhanVien("A1","A2",40000,phongban,vitri);
-    nhanvien2 = NhanVien("14","15",80,phongban2,vitri2);
     phongban3 = PhongBan("20","21");
     vitri3 = ViTri("22","23",50000);    
     phongban4 = PhongBan("30","31");
-    vitri4 = ViTri("32","33",100000);
-    nhanvien3= NhanVien("A1","A2",50,phongban,vitri);
-    nhanvien4 = NhanVien("14","15",90,phongban2,vitri2);
+    vitri4 = ViTri("32","33",100000);    
+    nhanvien= NhanVien("A1","A2",40000,phongban,vitri);
+    nhanvien2 = NhanVien("B1","B2",80,phongban2,vitri2);
+    nhanvien3= NhanVien("C1","C2",50,phongban3,vitri3);
+    nhanvien4 = NhanVien("D1","D2",90,phongban4,vitri4);
     list.themnhanvien(nhanvien);
     list.themnhanvien(nhanvien2);
     list.themnhanvien(nhanvien3);
