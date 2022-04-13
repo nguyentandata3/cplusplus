@@ -147,8 +147,9 @@ class DanhSach
         // NhanVien getnhanvien(){return danhsach[];}
         DanhSach timnhanvientheomaphongban(string maphongban);
         DanhSach timnhanvientheomavitri(string mavitri);
-        float tinhtongluongtheomaphongban(string maphongban);
-        
+        float tinhtongluongtheomaphongban(string maphongban);        
+        void intop3luongcaonhat();
+        void xoanvtheomaphongban(string maphongban);
 };
 void DanhSach::xuat()
 {
@@ -215,7 +216,24 @@ DanhSach DanhSach::timnhanvientheomavitri(string mavitri)
     }
     return a;
 }
-
+void DanhSach::intop3luongcaonhat()
+{   
+    cout<<setw(15)<<"Ma nhan vien"<<setw(20)<<"Ho Ten"<<setw(9)<<"Luong"<<setw(16)<<"Ma phong ban"<<setw(16)<<"Ten phong ban"<<setw(12)<<"Ma vi tri"<<setw(15)<<"Ten vi tri"<<setw(10)<<"Tro cap"<<"\n";
+    for(int i = soluong()-1; i >= soluong()-3; i--)
+    {
+    cout<<setw(15)<<danhsach[i].getmanv()<<setw(20)<<danhsach[i].gethotennv()<<setw(9)<<danhsach[i].getluong()<<setw(16)<<danhsach[i].getphongban().getmaphongban()<<setw(16)<<danhsach[i].getphongban().gettenphongban()<<setw(12)<<danhsach[i].getvitri().getmavitri()<<setw(15)<<danhsach[i].getvitri().gettenvitri()<<setw(10)<<danhsach[i].getvitri().gettrocap()<<"\n";
+    }
+}
+void DanhSach::xoanvtheomaphongban(string maphongban)
+{
+    for(int i = 0; i < soluong(); i++)
+    {
+        if(danhsach[i].getphongban().getmaphongban() == maphongban)
+        {
+            danhsach.erase(danhsach.begin() + i);
+        }
+    }
+}
 int main()
 {
     PhongBan phongban,phongban2,phongban3,phongban4;
@@ -240,8 +258,11 @@ int main()
     list.themnhanvien(nhanvien4);
     list.sapxeptheoluong();
     list.xuat();    
-    a = list.timnhanvientheomaphongban("01").timnhanvientheomavitri("03");
-    a.xuat();
-    cout<<"Tong luong theo ma phong ban: "<<list.tinhtongluongtheomaphongban("10")<<"\n";
+    list.intop3luongcaonhat();
+    list.xoanvtheomaphongban("30");
+    list.xuat();
+    // a = list.timnhanvientheomaphongban("01").timnhanvientheomavitri("03");
+    // a.xuat();
+    // cout<<"Tong luong theo ma phong ban: "<<list.tinhtongluongtheomaphongban("10")<<"\n";
     return 0;
 }
