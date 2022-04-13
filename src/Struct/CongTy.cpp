@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <vector>
 using namespace std;
 class PhongBan
 {
@@ -75,13 +76,79 @@ void ViTri::xuat()
     cout<<setw(15)<<"Ma vi tri"<<setw(18)<<"Ten vi tri"<<setw(18)<<"Tro cap"<<"\n";
     cout<<setw(15)<<ma<<setw(18)<<ten<<setw(18)<<trocap<<"\n";
 }
+class NhanVien
+{
+    private:
+        string manv;
+        string hotennv;
+        float luong;
+        PhongBan phongban;
+        ViTri vitri;
+    public:
+        NhanVien();
+        NhanVien(string manv, string hotennv, float luong, PhongBan phongban, ViTri vitri);
+        void nhap();
+        void xuat();
+};
+NhanVien::NhanVien()
+{
+    this->manv = "error";
+    this->hotennv = "error";
+    this->luong = 0;
+}
+NhanVien::NhanVien(string manv, string hotennv, float luong, PhongBan phongban, ViTri vitri)
+{
+    this->manv = manv;
+    this->hotennv = hotennv;
+    this->luong = luong;
+    this->phongban = phongban;
+    this->vitri = vitri;
+}
+void NhanVien::nhap()
+{
+    cout<<"Ma nhan vien: ";
+    cin>>manv;
+    cout<<"Ho ten nhan vien: ";
+    cin>>hotennv;
+    phongban.nhap();
+    vitri.nhap();
+}
+void NhanVien::xuat()
+{
+    cout<<setw(15)<<"Ma nhan vien"<<setw(20)<<"Ho ten nhan vien"<<setw(10)<<"Luong"<<"\n";
+    cout<<setw(15)<<manv<<setw(20)<<hotennv<<setw(10)<<luong;
+    phongban.xuat();
+    vitri.xuat();
+}
+class DanhSach
+{
+    private:
+        vector<NhanVien> danhsach;
+    public:
+        void themnhanvien(NhanVien nhanvien)
+        {
+            danhsach.push_back(nhanvien);
+        }
+        int soluong(){return danhsach.size();}
+        void xuat()
+        {
+            for(int i = 0; i < soluong(); i++)
+            {
+                danhsach[i].xuat();
+            }
+        }
+
+};
 int main()
 {
     PhongBan phongban;
     ViTri vitri;
+    NhanVien nhanvien;
+    DanhSach list;
     phongban = PhongBan("001","002");
     vitri = ViTri("003","004",50000);
-    phongban.xuat();
-    vitri.xuat();
+    nhanvien= NhanVien("A1","A2",40000,phongban,vitri);
+    list.themnhanvien(nhanvien);
+    list.xuat();
     return 0;
 }
