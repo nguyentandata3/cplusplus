@@ -89,6 +89,7 @@ class NhanVien
         NhanVien(string manv, string hotennv, float luong, PhongBan phongban, ViTri vitri);
         void nhap();
         void xuat();
+        float getluong(){return luong;}
 };
 NhanVien::NhanVien()
 {
@@ -116,7 +117,7 @@ void NhanVien::nhap()
 void NhanVien::xuat()
 {
     cout<<setw(15)<<"Ma nhan vien"<<setw(20)<<"Ho ten nhan vien"<<setw(10)<<"Luong"<<"\n";
-    cout<<setw(15)<<manv<<setw(20)<<hotennv<<setw(10)<<luong;
+    cout<<setw(15)<<manv<<setw(20)<<hotennv<<setw(10)<<luong<<"\n";
     phongban.xuat();
     vitri.xuat();
 }
@@ -129,6 +130,7 @@ class DanhSach
         {
             danhsach.push_back(nhanvien);
         }
+        void xoanv(int vitri);
         int soluong(){return danhsach.size();}
         void xuat()
         {
@@ -137,18 +139,51 @@ class DanhSach
                 danhsach[i].xuat();
             }
         }
-
+        void sapxeptheoluong();
 };
+void DanhSach::xoanv(int vitri)
+{
+    danhsach.erase(danhsach.begin() + vitri);
+}
+void DanhSach::sapxeptheoluong()
+{
+    NhanVien temp;
+    for(int i = 0; i < soluong()-1; i++)
+    {
+        for(int j = i+1; j < soluong(); j++)
+        {
+            if(danhsach[i].getluong() > danhsach[j].getluong())
+            {
+                temp = danhsach[i];
+                danhsach[i] = danhsach[j];
+                danhsach[j] = temp;
+            }
+        }
+    }
+}
 int main()
 {
-    PhongBan phongban;
-    ViTri vitri;
-    NhanVien nhanvien;
+    PhongBan phongban,phongban2,phongban3,phongban4;
+    ViTri vitri,vitri2,vitri3,vitri4;
+    NhanVien nhanvien,nhanvien2,nhanvien3,nhanvien4;
     DanhSach list;
     phongban = PhongBan("001","002");
-    vitri = ViTri("003","004",50000);
+    vitri = ViTri("003","004",50000);    
+    phongban2 = PhongBan("10","11");
+    vitri2 = ViTri("12","13",100000);
     nhanvien= NhanVien("A1","A2",40000,phongban,vitri);
+    nhanvien2 = NhanVien("14","15",80,phongban2,vitri2);
+    phongban3 = PhongBan("20","21");
+    vitri3 = ViTri("22","23",50000);    
+    phongban4 = PhongBan("30","31");
+    vitri4 = ViTri("32","33",100000);
+    nhanvien3= NhanVien("A1","A2",50,phongban,vitri);
+    nhanvien4 = NhanVien("14","15",90,phongban2,vitri2);
     list.themnhanvien(nhanvien);
-    list.xuat();
+    list.themnhanvien(nhanvien2);
+    list.themnhanvien(nhanvien3);
+    list.themnhanvien(nhanvien4);
+    list.sapxeptheoluong();
+    list.xuat();    
     return 0;
 }
