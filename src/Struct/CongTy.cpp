@@ -260,7 +260,7 @@ int main()
     list.xuat();    
     list.intop3luongcaonhat();
     list.xoanvtheomaphongban("30");
-    list.xuat();
+    list.xuat();   
     // a = list.timnhanvientheomaphongban("01").timnhanvientheomavitri("03");
     // a.xuat();
     // cout<<"Tong luong theo ma phong ban: "<<list.tinhtongluongtheomaphongban("10")<<"\n";
