@@ -45,8 +45,8 @@ class DuongTron
         float dientich();
         float getbankinh(){return bankinh;}
         bool kiemtratoado(Diem a);
-        float dientich2dt();
-        int kiemtra2duongtron(DuongTron a, DuongTron b);
+        int kiemtra2duongtron(DuongTron a, DuongTron b);        
+        float dientichphu2dt(DuongTron a, DuongTron b);
 };
 DuongTron::DuongTron()
 {
@@ -96,28 +96,39 @@ bool DuongTron::kiemtratoado(Diem a)
 int DuongTron::kiemtra2duongtron(DuongTron a, DuongTron b)
 {
     float tong = sqrt(pow(a.x - b.x,2) + pow(a.y - b.y,2));
-    cout<<tong<<" - "<<a.bankinh+b.bankinh<<"\n";
-
     if(tong < a.bankinh + b.bankinh) return -1;
     else if(tong == a.bankinh + b.bankinh) return 0;
     else return 1;
 }
-
+float DuongTron::dientichphu2dt(DuongTron a, DuongTron b)
+{
+    float dientich;
+    if(a.kiemtra2duongtron(a,b) == -1)
+    {
+        dientich = 0;
+    }
+    else if(a.kiemtra2duongtron(a,b) == 0)
+    {
+        dientich = a.dientich() + b.dientich();
+    }
+    
+    return dientich;
+}
 int main()
 {
     DuongTron a,b,c;
     Diem z;
     z = Diem(3,3);
-    a = DuongTron(3,4,7);
-    b = DuongTron(15,17,1);
+    a = DuongTron(0,3,1);
+    b = DuongTron(3,7,4);
     a.xuat();
     cout<<a.dientich()<<"\n";
     cout<<a.chuvi()<<"\n";
     if(a.kiemtratoado(z) == false) cout<<"Khong thuoc duong tron\n";
     else cout<<"Thuoc duong tron\n";
-    cout<<a.kiemtra2duongtron(a,b)<<"\n";
     if(a.kiemtra2duongtron(a,b) == -1) cout<<"2 duong tron cat nhau\n";
     else if(a.kiemtra2duongtron(a,b) == 0) cout<<"2 duong tron tiep xuc nhau\n";
-    else cout<<"2 duong tron khong cat nhau";
+    else cout<<"2 duong tron khong cat nhau\n";
+    cout<<a.dientichphu2dt(a,b)<<"\n";
     return 0;
 }
